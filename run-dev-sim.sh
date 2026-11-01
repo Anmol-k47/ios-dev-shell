@@ -4,11 +4,12 @@ eval "$(fnm env)"
 cd ~/ios-dev-shell
 
 while true; do
-  echo "=== Starting Cloud iOS Dev Build Simulator at $(date) ===" | tee -a ~/sim.log
+  echo "=== Starting Cloud iOS Dev Build Simulator with Ngrok at $(date) ===" | tee -a ~/sim.log
   npx native-sim up \
     --mode build \
     --dev \
     --framework expo \
+    --tunnel ngrok \
     --minutes 350 \
     --no-open \
     --public 2>&1 | tee -a ~/sim.log
